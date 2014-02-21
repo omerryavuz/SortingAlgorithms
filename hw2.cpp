@@ -544,33 +544,7 @@ int main(int argc,char *argv[]) {
 			output << pointVector[i].first << " " << pointVector[i].second;
 		}		
 	}	
-	vector<string> names ;
-	names.push_back("same");
-	names.push_back("ordered");
-	names.push_back("random");
-	vector<int> inputsize ;
-	inputsize.push_back(50);
-	inputsize.push_back(100);
-	inputsize.push_back(500);
-	inputsize.push_back(1000);
-	inputsize.push_back(5000);
-	inputsize.push_back(10000);
-	
-	for(int j=0;j<3;j++){
-		cout << names[j] << ":\t";
-		if(j!=1){
-			cout << "\t" ;
-		}
-		for(int i=0;i<inputsize.size();i++){
-			vector<Ant_pair> input = inputGenerator(inputsize[i],j);
-			gettimeofday(&tv_begin, NULL);
-			bucketsort2(input);
-			gettimeofday(&tv_end, NULL);
-			passed_milliseconds = (tv_end.tv_sec - tv_begin.tv_sec)*1000 + (tv_end.tv_usec - tv_begin.tv_usec)/1000;
-			cout << passed_milliseconds << "\t" ;
-		}	
-		cout << endl;
-	}
+
 
 	return 0;
 }
